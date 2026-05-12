@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Dark Mode Base -->
+    <color name="bg_dark_main">#0F111A</color>
+    <color name="bg_dark_circle_1">#1A1D2E</color>
+    <color name="bg_dark_circle_2">#141724</color>
+
+    <!-- Button & Highlights (Vibrant) -->
+    <color name="button_neon_purple">#B388FF</color>
+    <color name="button_neon_pink">#FF80AB</color>
+
+    <!-- Varied Text Colors for Contrast -->
+    <color name="text_latest_gold">#FFD700</color>
+    <color name="text_history_cyan">#40E0D0</color>
+    <color name="text_history_mint">#98FF98</color>
+    <color name="text_elapsed_orange">#FF8C00</color>
+    <color name="text_secondary_grey">#B0B0B0</color>
+    <color name="text_elapsed_green">#7CFF7C</color>
+    <!-- Blue Tablet Button Colors -->
+    <color name="tablet_blue_main">#76D7EA</color>
+    <color name="tablet_blue_dark">#00A8C1</color>
+    <color name="tablet_blue_shadow">#008B9E</color>
+    <color name="tablet_blue_light">#A0E8F5</color>
+    <color name="pill_button_blue">#9EBDC9</color>
+    <color name="flare_pink">#FFD1DC</color>
+    <color name="cortisone_yellow">#FFF9C4</color>
+    <color name="grey_button">#808080</color>
+    <color name="urticare_blue">#4A90E2</color>
+    <color name="urticare_green">#50E3C2</color>
+    <color name="warning_red_bg">#442C2E</color>
+    <color name="warning_red_text">#FFCDD2</color>
+    <color name="safety_green_bg">#1B3322</color>
+    <color name="safety_green_text">#A5D6A7</color>
+    <color name="safety_red_bg">#442C2E</color>
+    <color name="safety_red_text">#EF9A9A</color>
+</resources>

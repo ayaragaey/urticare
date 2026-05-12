@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/activity_background">
+
+    <View
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_bar"
+        android:layout_above="@+id/bottom_bar"
+        android:clipToPadding="false"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:text="@string/triggers_subtitle"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <!-- TOP SUMMARY SECTION -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_trigger_intelligence"
+                android:textColor="@color/pill_button_blue"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:id="@+id/summary_cards_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- Cards added dynamically -->
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Quick Add Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_quick_log"
+                android:textColor="@color/pill_button_blue"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_quick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:chipSpacingVertical="4dp"
+                app:chipSpacingHorizontal="4dp"
+                android:layout_marginBottom="16dp">
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- Search Bar -->
+            <EditText
+                android:id="@+id/edit_search_triggers"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/card_background"
+                android:hint="@string/hint_search_triggers"
+                android:textColorHint="@color/text_secondary_grey"
+                android:textColor="@color/white"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="8dp"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:autofillHints="none"/>
+
+            <!-- Suggestion Chips Container -->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_suggestions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:chipSpacingVertical="4dp"
+                app:chipSpacingHorizontal="4dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone">
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- Categories Container -->
+            <LinearLayout
+                android:id="@+id/container_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!-- Dynamically added or static expandable sections -->
+            </LinearLayout>
+
+            <!-- Notes Field -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_optional_notes"
+                android:textColor="@color/pill_button_blue"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/edit_trigger_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="80dp"
+                android:background="@drawable/card_background"
+                android:gravity="top"
+                android:padding="12dp"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:hint="@string/hint_trigger_notes"
+                android:textColorHint="@color/text_secondary_grey"
+                android:layout_marginBottom="32dp"
+                android:inputType="textMultiLine"
+                android:autofillHints="none"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Sticky Bottom Bar -->
+    <LinearLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#E60F111A"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:elevation="8dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_clear_selection"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/btn_clear_selection"
+            android:textColor="@color/white"
+            android:background="@drawable/grey_button_selector"
+            android:textAllCaps="false"
+            android:layout_marginEnd="8dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cancel_triggers"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/btn_cancel"
+            android:textColor="@color/white"
+            android:background="@drawable/grey_button_selector"
+            android:textAllCaps="false"
+            android:layout_marginEnd="8dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_save_triggers"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="2"
+            android:text="@string/btn_save_selected"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:background="@drawable/pill_button_selector"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Manual, Export and Effect buttons row -->
+    <LinearLayout
+        android:id="@+id/secondary_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_manual_pill"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/pill_button_selector"
+            android:text="@string/btn_manual_entry"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textAllCaps="false"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_export_csv"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/pill_button_selector"
+            android:text="@string/export_csv"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textAllCaps="false"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_log_effect"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/pill_button_selector"
+            android:text="@string/effect_button_label"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textAllCaps="false"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/secondary_buttons"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_clear_log"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/pill_button_selector"
+            android:text="@string/reset_history"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textAllCaps="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_undo_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/pill_button_selector"
+            android:text="@string/undo_clear"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textAllCaps="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:visibility="gone"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_reset_all"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/pill_button_selector"
+            android:text="@string/reset_all"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textAllCaps="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/button_container">
+
+        <LinearLayout
+            android:id="@+id/full_log_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+    </ScrollView>
+
+</RelativeLayout>

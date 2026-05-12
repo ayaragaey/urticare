@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/activity_background"
+    android:padding="16dp">
+
+    <!-- Clear All and Undo under Top Bar on the right -->
+    <LinearLayout
+        android:id="@+id/profile_actions_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/btn_undo_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="↶"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/btn_clear_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_label"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="12sp"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/profile_actions_bar"
+        android:layout_marginBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Name, Age, F/M on one line -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_name"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/edit_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#82B1FF"
+                    android:inputType="textPersonName"
+                    android:backgroundTint="@color/white"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_age"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp"/>
+
+                <EditText
+                    android:id="@+id/edit_age"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#82B1FF"
+                    android:inputType="number"
+                    android:backgroundTint="@color/white"
+                    android:textSize="14sp"/>
+
+                <CheckBox
+                    android:id="@+id/cb_sex_f"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sex_f"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="4dp"/>
+
+                <CheckBox
+                    android:id="@+id/cb_sex_m"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sex_m"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!-- Female specific section -->
+            <LinearLayout
+                android:id="@+id/section_female"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="12dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/label_menstruation"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/btn_cycle_log"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/btn_cycle_log"
+                        android:textColor="@color/pill_button_blue"
+                        android:textSize="12sp"
+                        android:padding="8dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_mens_remind" android:textColor="@color/white" android:textSize="12sp" android:textStyle="bold"/>
+                    <CheckBox android:id="@+id/cb_mens_remind_on" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="On" android:textColor="@color/white" android:textSize="11sp"/>
+                    <CheckBox android:id="@+id/cb_mens_remind_off" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Off" android:textColor="@color/white" android:textSize="11sp" android:layout_marginStart="8dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_mens_start" android:textColor="@color/white" android:textSize="10sp"/>
+                        <TextView
+                            android:id="@+id/display_mens_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#82B1FF"
+                            android:padding="4dp"
+                            android:text="Select Date"
+                            android:textSize="11sp"/>
+                        <TextView
+                            android:id="@+id/btn_clear_mens"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/clear_label"
+                            android:textColor="@android:color/holo_red_light"
+                            android:textSize="10sp"
+                            android:padding="4dp"/>
+
+                        <TextView
+                            android:id="@+id/btn_undo_clear_mens"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="↶"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:padding="4dp"
+                            android:visibility="gone"/>
+
+                        <View android:layout_width="4dp" android:layout_height="0dp"/>
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_mens_end" android:textColor="@color/white" android:textSize="10sp"/>
+                        <TextView
+                            android:id="@+id/display_mens_end_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#82B1FF"
+                            android:padding="4dp"
+                            android:text="Select Date"
+                            android:textSize="11sp"/>
+                        <TextView
+                            android:id="@+id/btn_clear_mens_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/clear_label"
+                            android:textColor="@android:color/holo_red_light"
+                            android:textSize="10sp"
+                            android:padding="4dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_pregnancy"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox android:id="@+id/cb_preg_yes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/yes" android:textColor="@color/white" android:textSize="12sp"/>
+                    <CheckBox android:id="@+id/cb_preg_no" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no" android:textColor="@color/white" android:layout_marginStart="24dp" android:textSize="12sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/row_preg_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:visibility="gone">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_preg_month" android:textColor="@color/white" android:textStyle="bold"/>
+                    <EditText
+                        android:id="@+id/edit_preg_month"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#82B1FF"
+                        android:inputType="number"
+                        android:backgroundTint="@color/white"
+                        android:layout_marginStart="8dp"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/btn_save_preg_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✓"
+                        android:textColor="@android:color/holo_green_light"
+                        android:textSize="20sp"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                    <TextView
+                        android:id="@+id/btn_undo_preg_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Undo"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:focusable="true"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_diagnosis"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"/>
+            <EditText
+                android:id="@+id/edit_diagnosis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#82B1FF"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="12sp"
+                android:backgroundTint="@color/white"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_current_ah"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_add_ah"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    android:background="@drawable/pill_button_selector"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:padding="0dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/container_ah_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="4dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_current_cortisone"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_add_cortisone"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    android:background="@drawable/pill_button_selector"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:padding="0dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/container_cortisone_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_on_xolair"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:id="@+id/cb_xolair_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yes"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"/>
+                    <CheckBox
+                        android:id="@+id/cb_xolair_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="24dp"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/display_xolair_freq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#82B1FF"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:paddingStart="32dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_chronic"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"/>
+            <EditText
+                android:id="@+id/edit_chronic_conditions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#82B1FF"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="12sp"
+                android:backgroundTint="@color/white"/>
+
+            <!-- Recurring Medications Structured Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/title_recurring_meds"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_add_recurring_med"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    android:background="@drawable/pill_button_selector"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="0dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/container_recurring_meds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/copyright_notice"
+        android:textColor="@color/white"
+        android:textSize="8sp" />
+
+</RelativeLayout>

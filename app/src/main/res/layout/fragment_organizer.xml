@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/activity_background"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/organizer_title_spacer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"/>
+
+    <!-- Hub View: Grid of Buttons -->
+    <LinearLayout
+        android:id="@+id/layout_organizer_hub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/organizer_title_spacer"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_nav_meds"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/organizer_meds"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/pill_button_selector"
+            android:textAllCaps="false"
+            android:layout_marginBottom="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_nav_apps"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/organizer_apps"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/pill_button_selector"
+            android:textAllCaps="false"
+            android:layout_marginBottom="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_nav_water"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/organizer_water"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/pill_button_selector"
+            android:textAllCaps="false"
+            android:layout_marginBottom="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_nav_vitamins"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/organizer_vitamins"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/pill_button_selector"
+            android:textAllCaps="false"
+            android:layout_marginBottom="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_nav_triggers_manager"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/organizer_triggers"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/pill_button_selector"
+            android:textAllCaps="false"
+            android:layout_marginBottom="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_nav_consumables_tracker"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="CT1"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/pill_button_selector"
+            android:textAllCaps="false"
+            android:layout_marginBottom="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_nav_stress_navigator"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="@string/title_stress_navigator"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/pill_button_selector"
+            android:textAllCaps="false"
+            android:layout_marginBottom="12dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_sections"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/organizer_title_spacer"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Medication Organizer Section -->
+            <LinearLayout
+                android:id="@+id/section_medication_organizer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:visibility="gone">
+
+                <!-- Profile Summary Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#22FFFFFF"
+                    android:padding="12dp">
+                    <TextView android:id="@+id/summary_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/white" android:textSize="14sp" android:textStyle="bold"/>
+                    <TextView android:id="@+id/summary_gender" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/white" android:textSize="14sp" android:layout_marginTop="4dp"/>
+                    <TextView android:id="@+id/summary_age" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/white" android:textSize="14sp" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <!-- Sub-Navigation for Meds -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp">
+                    <TextView android:id="@+id/nav_urticaria" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/label_urticaria" android:textColor="@color/pill_button_blue" android:textSize="10sp" android:textStyle="bold" android:gravity="center" android:padding="4dp"/>
+                    <TextView android:id="@+id/nav_chronic" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/label_other_conditions" android:textColor="@color/white" android:textSize="10sp" android:textStyle="bold" android:gravity="center" android:padding="4dp"/>
+                    <TextView android:id="@+id/nav_acute" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/label_acute_course" android:textColor="@color/white" android:textSize="10sp" android:textStyle="bold" android:gravity="center" android:padding="4dp"/>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/layout_urticaria_flow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp">
+                    <LinearLayout android:id="@+id/container_urticaria" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_gravity="center_horizontal">
+                        <androidx.appcompat.widget.AppCompatButton android:id="@+id/btn_add_urticaria" android:layout_width="40dp" android:layout_height="40dp" android:text="@string/btn_add_entry" android:textColor="@color/white" android:textSize="20sp" android:background="@drawable/pill_button_selector" android:layout_marginTop="8dp"/>
+                        <androidx.appcompat.widget.AppCompatButton android:id="@+id/btn_undo_urticaria" android:layout_width="wrap_content" android:layout_height="40dp" android:text="↶" android:textColor="@color/white" android:textSize="20sp" android:background="@drawable/grey_button_selector" android:layout_marginTop="8dp" android:layout_marginStart="8dp" android:visibility="gone"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/layout_chronic_flow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp" android:visibility="gone">
+                    <LinearLayout android:id="@+id/container_other" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_gravity="center_horizontal">
+                        <androidx.appcompat.widget.AppCompatButton android:id="@+id/btn_add_other" android:layout_width="40dp" android:layout_height="40dp" android:text="@string/btn_add_entry" android:textColor="@color/white" android:textSize="20sp" android:background="@drawable/pill_button_selector" android:layout_marginTop="8dp"/>
+                        <androidx.appcompat.widget.AppCompatButton android:id="@+id/btn_undo_other" android:layout_width="wrap_content" android:layout_height="40dp" android:text="↶" android:textColor="@color/white" android:textSize="20sp" android:background="@drawable/grey_button_selector" android:layout_marginTop="8dp" android:layout_marginStart="8dp" android:visibility="gone"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/layout_acute_flow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp" android:visibility="gone">
+                    <LinearLayout android:id="@+id/container_acute" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_gravity="center_horizontal">
+                        <androidx.appcompat.widget.AppCompatButton android:id="@+id/btn_add_acute" android:layout_width="40dp" android:layout_height="40dp" android:text="@string/btn_add_entry" android:textColor="@color/white" android:textSize="20sp" android:background="@drawable/pill_button_selector" android:layout_marginTop="8dp"/>
+                        <androidx.appcompat.widget.AppCompatButton android:id="@+id/btn_undo_acute" android:layout_width="wrap_content" android:layout_height="40dp" android:text="↶" android:textColor="@color/white" android:textSize="20sp" android:background="@drawable/grey_button_selector" android:layout_marginTop="8dp" android:layout_marginStart="8dp" android:visibility="gone"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Appointments Organizer Section -->
+            <LinearLayout
+                android:id="@+id/section_appointments_organizer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:visibility="gone">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/title_doctor_apps" android:textColor="@color/pill_button_blue" android:textStyle="bold" android:textSize="18sp"/>
+                <LinearLayout android:id="@+id/container_doctor_apps" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp"/>
+                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btn_add_doctor_app" android:layout_width="40dp" android:layout_height="40dp" android:text="@string/btn_add_entry" android:textColor="@color/white" android:textSize="20sp" android:background="@drawable/pill_button_selector" android:layout_marginTop="8dp" android:layout_gravity="center_horizontal"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/title_follow_ups" android:textColor="@color/pill_button_blue" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="24dp"/>
+                <LinearLayout android:id="@+id/container_follow_ups" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp"/>
+                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btn_add_follow_up" android:layout_width="40dp" android:layout_height="40dp" android:text="@string/btn_add_entry" android:textColor="@color/white" android:textSize="20sp" android:background="@drawable/pill_button_selector" android:layout_marginTop="8dp" android:layout_gravity="center_horizontal"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/title_custom_rems" android:textColor="@color/pill_button_blue" android:textStyle="bold" android:textSize="18sp" android:layout_marginTop="24dp"/>
+                <LinearLayout android:id="@+id/container_custom_reminders" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp"/>
+                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btn_add_custom_rem" android:layout_width="40dp" android:layout_height="40dp" android:text="@string/btn_add_entry" android:textColor="@color/white" android:textSize="20sp" android:background="@drawable/pill_button_selector" android:layout_marginTop="8dp" android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <!-- Water Intake Reminder Section -->
+            <LinearLayout
+                android:id="@+id/section_water_reminder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone"
+                android:background="#11FFFFFF">
+
+                <TextView
+                    android:id="@+id/txt_why_hydration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hydration_title"
+                    android:textColor="@color/pill_button_blue"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:background="@drawable/bg_hydration_title"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <LinearLayout
+                    android:id="@+id/box_hydration_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#22FFFFFF"
+                    android:padding="16dp"
+                    android:visibility="gone"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hydration_info_header"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hydration_point1" android:textColor="@color/white" android:textSize="12sp" android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hydration_point2" android:textColor="@color/white" android:textSize="12sp" android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hydration_point3" android:textColor="@color/white" android:textSize="12sp" android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hydration_point4" android:textColor="@color/white" android:textSize="12sp" android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hydration_point5" android:textColor="@color/white" android:textSize="12sp" android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hydration_takeaway"
+                        android:textColor="@color/white"
+                        android:textStyle="italic"
+                        android:textSize="12sp"
+                        android:layout_marginBottom="12dp"/>
+
+                    <TextView
+                        android:id="@+id/btn_got_it"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/btn_got_it"
+                        android:textColor="@color/pill_button_blue"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_gravity="end"
+                        android:padding="8dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_water_interval"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/edit_water_interval"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#82B1FF"
+                    android:textSize="18sp"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/hint_water_range"
+                    android:autofillHints="none"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_set_water"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_set_water"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/pill_button_selector"
+                    android:layout_marginTop="24dp"
+                    android:textAllCaps="false"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_cancel_water"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_cancel_water"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/grey_button_selector"
+                    android:layout_marginTop="12dp"
+                    android:textAllCaps="false"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/status_water_reminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/pill_button_blue"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:textStyle="italic"/>
+            </LinearLayout>
+
+            <!-- Vitamins Organizer Section -->
+            <LinearLayout
+                android:id="@+id/section_vitamins_organizer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:visibility="gone">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/organizer_vitamins" android:textColor="@color/pill_button_blue" android:textStyle="bold" android:textSize="18sp"/>
+                <LinearLayout android:id="@+id/container_vitamins" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp"/>
+                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btn_add_vitamin" android:layout_width="40dp" android:layout_height="40dp" android:text="@string/btn_add_entry" android:textColor="@color/white" android:textSize="20sp" android:background="@drawable/pill_button_selector" android:layout_marginTop="8dp" android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/copyright_notice"
+        android:textColor="@color/white"
+        android:textSize="8sp" />
+
+</RelativeLayout>

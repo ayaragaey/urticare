@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#121212">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_med_details"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/edit_med_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_med_name"
+        android:textColor="@color/white"
+        android:textColorHint="#88FFFFFF"
+        android:backgroundTint="@color/white"
+        android:inputType="text"
+        android:textSize="14sp"
+        android:layout_marginBottom="12dp"
+        android:autofillHints="name"/>
+
+    <EditText
+        android:id="@+id/edit_med_dosage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_dosage_optional"
+        android:textColor="@color/white"
+        android:textColorHint="#88FFFFFF"
+        android:backgroundTint="@color/white"
+        android:inputType="text"
+        android:textSize="14sp"
+        android:layout_marginBottom="12dp"
+        android:autofillHints="none"/>
+
+    <LinearLayout
+        android:id="@+id/reason_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_reason"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/text_med_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/possible_reason_short_gap"
+            android:textColor="#82B1FF"
+            android:textSize="14sp"
+            android:padding="8dp"
+            android:background="#1E212B"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/cb_daily_entry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_daily_entry"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

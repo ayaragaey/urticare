@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/activity_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="24dp"
+            android:paddingTop="0dp">
+
+            <ImageView
+                android:id="@+id/logo_urticare"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-8dp"
+                android:layout_marginBottom="0dp"
+                android:src="@drawable/logo_urticare"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/logo_content_description" />
+
+            <!-- Container for Pill Taken, Flare Up, and Cortisone Buttons -->
+            <LinearLayout
+                android:id="@+id/main_buttons_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo_urticare"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="-4dp">
+
+                <!-- Flare Up Button -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button_flare"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/flare_button_selector"
+                    android:text="@string/flare_button"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:elevation="4dp"
+                    android:textAllCaps="false"/>
+
+                <View
+                    android:layout_width="15dp"
+                    android:layout_height="0dp"/>
+
+                <!-- Pill Taken Button Column -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/button_take_pill"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:text="@string/pill_taken_button"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/pill_button_selector"
+                        android:elevation="4dp"
+                        android:textAllCaps="false"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="15dp"
+                    android:layout_height="0dp"/>
+
+                <!-- Cortisone Button -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button_cortisone"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/cortisone_button_selector"
+                    android:text="@string/cortisone_button"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:elevation="4dp"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+
+            <!-- Container to display the last 4 logs -->
+            <LinearLayout
+                android:id="@+id/log_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/main_buttons_container"
+                android:layout_marginTop="8dp"/>
+
+            <LinearLayout
+                android:id="@+id/reset_buttons_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/log_container"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button_reset_logs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:background="@drawable/grey_button_selector"
+                    android:text="@string/reset_history"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:elevation="2dp"
+                    android:minWidth="100dp"
+                    android:minHeight="0dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textAllCaps="false"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button_undo_clear_pill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/grey_button_selector"
+                    android:text="@string/undo_clear"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:elevation="2dp"
+                    android:minWidth="100dp"
+                    android:minHeight="0dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textAllCaps="false"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <!-- TextView to display time difference -->
+            <TextView
+                android:id="@+id/time_difference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time_since_last_pill"
+                android:layout_below="@id/reset_buttons_container"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="4dp"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_view_summary"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_below="@id/time_difference"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/grey_button_selector"
+                android:text="@string/view_realtime_summary"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:elevation="2dp"
+                android:minWidth="160dp"
+                android:minHeight="0dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textAllCaps="false"/>
+
+            <!-- Medication Summary Table Section -->
+            <LinearLayout
+                android:id="@+id/pills_stats_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button_view_summary"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Table Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:paddingBottom="4dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/header_24h" android:textColor="@color/white" android:textStyle="bold" android:textSize="12sp" android:gravity="center"/>
+                    <View android:layout_width="1dp" android:layout_height="match_parent" android:background="@color/white"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/header_48h" android:textColor="@color/white" android:textStyle="bold" android:textSize="12sp" android:gravity="center"/>
+                    <View android:layout_width="1dp" android:layout_height="match_parent" android:background="@color/white"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/header_72h" android:textColor="@color/white" android:textStyle="bold" android:textSize="12sp" android:gravity="center"/>
+                </LinearLayout>
+
+                <!-- Table Values -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_marginTop="2dp"
+                    android:paddingBottom="8dp">
+                    <TextView android:id="@+id/txt_count_24h" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="@color/pill_button_blue" android:textSize="14sp" android:gravity="center"/>
+                    <View android:layout_width="1dp" android:layout_height="match_parent" android:background="@color/white"/>
+                    <TextView android:id="@+id/txt_count_48h" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="@color/pill_button_blue" android:textSize="14sp" android:gravity="center"/>
+                    <View android:layout_width="1dp" android:layout_height="match_parent" android:background="@color/white"/>
+                    <TextView android:id="@+id/txt_count_72h" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="@color/pill_button_blue" android:textSize="14sp" android:gravity="center"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Monthly Lines with Previous Months buttons -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/pills_summary_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/pill_button_blue"
+                        android:textSize="14sp"
+                        android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/btn_prev_months_ah"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/previous_months"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:padding="4dp"
+                        android:layout_marginStart="8dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="0dp">
+                    <TextView
+                        android:id="@+id/cortisone_summary_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/pill_button_blue"
+                        android:textSize="14sp"
+                        android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/btn_prev_months_cortisone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/previous_months"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:padding="4dp"
+                        android:layout_marginStart="8dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
